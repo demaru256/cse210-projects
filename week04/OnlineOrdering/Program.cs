@@ -1,38 +1,33 @@
 using System;
-using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
-        List<Video> videos = new List<Video>();
+        // Order 1 (USA)
+        Address addr1 = new Address("123 Main St", "New York", "NY", "USA");
+        Customer cust1 = new Customer("John Smith", addr1);
+        Order order1 = new Order(cust1);
 
-        // Video 1
-        Video v1 = new Video("Intro to Programming", "John Doe", 300);
-        v1.AddComment(new Comment("Alice", "Great explanation!"));
-        v1.AddComment(new Comment("Bob", "Very helpful."));
-        v1.AddComment(new Comment("Ema", "Loved it!"));
+        order1.AddProduct(new Product("Laptop", "P001", 800, 1));
+        order1.AddProduct(new Product("Mouse", "P002", 20, 2));
 
-        // Video 2
-        Video v2 = new Video("OOP Concepts", "Jane Smith", 420);
-        v2.AddComment(new Comment("Mike", "Clear and simple."));
-        v2.AddComment(new Comment("Sara", "Nice examples."));
-        v2.AddComment(new Comment("Tom", "Helped me a lot."));
+        // Order 2 (International)
+        Address addr2 = new Address("45 Mtaa Rd", "Dar es Salaam", "", "Tanzania");
+        Customer cust2 = new Customer("Ema", addr2);
+        Order order2 = new Order(cust2);
 
-        // Video 3
-        Video v3 = new Video("C# Basics", "Chris Lee", 360);
-        v3.AddComment(new Comment("Anna", "Well explained."));
-        v3.AddComment(new Comment("David", "Good pacing."));
-        v3.AddComment(new Comment("Lucy", "Easy to follow."));
+        order2.AddProduct(new Product("Phone", "P003", 500, 1));
+        order2.AddProduct(new Product("Charger", "P004", 25, 3));
 
-        videos.Add(v1);
-        videos.Add(v2);
-        videos.Add(v3);
+        // Display Order 1
+        Console.WriteLine(order1.GetPackingLabel());
+        Console.WriteLine(order1.GetShippingLabel());
+        Console.WriteLine($"Total Cost: ${order1.GetTotalCost()}\n");
 
-        // Display all videos
-        foreach (Video video in videos)
-        {
-            video.DisplayVideo();
-        }
+        // Display Order 2
+        Console.WriteLine(order2.GetPackingLabel());
+        Console.WriteLine(order2.GetShippingLabel());
+        Console.WriteLine($"Total Cost: ${order2.GetTotalCost()}");
     }
 }
