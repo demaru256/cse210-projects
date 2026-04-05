@@ -1,3 +1,5 @@
+using System;
+
 public class Entry
 {
     public string _date = "";
@@ -9,5 +11,11 @@ public class Entry
         Console.WriteLine($"{_date} - {_promptText}");
         Console.WriteLine(_entryText);
         Console.WriteLine();
+    }
+
+    public bool ContainsKeyword(string keyword)
+    {
+        return _entryText.ToLower().Contains(keyword.ToLower()) ||
+               _promptText.ToLower().Contains(keyword.ToLower());
     }
 }

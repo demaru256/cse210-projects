@@ -47,4 +47,26 @@ public class Journal
             _entries.Add(entry);
         }
     }
+
+    // 🔥 NEW FEATURE
+    public void SearchEntries(string keyword)
+    {
+        Console.WriteLine("\nSearch Results:");
+
+        bool found = false;
+
+        foreach (Entry entry in _entries)
+        {
+            if (entry.ContainsKeyword(keyword))
+            {
+                entry.Display();
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No matching entries found.");
+        }
+    }
 }

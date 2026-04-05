@@ -9,14 +9,15 @@ class Program
 
         int choice = 0;
 
-        while (choice != 5)
+        while (choice != 6)
         {
             Console.WriteLine("\nJournal Menu:");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Save");
             Console.WriteLine("4. Load");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("5. Search (Scripture/Word) <-- Exceeding Requirement");
+            Console.WriteLine("6. Quit");
             Console.Write("Choose an option: ");
 
             string input = Console.ReadLine();
@@ -51,7 +52,7 @@ class Program
             }
             else if (choice == 3)
             {
-                Console.Write("\nEnter filename to save: ");
+                Console.Write("Enter filename to save: ");
                 string file = Console.ReadLine();
 
                 if (!string.IsNullOrWhiteSpace(file))
@@ -66,7 +67,7 @@ class Program
             }
             else if (choice == 4)
             {
-                Console.Write("\nEnter filename to load: ");
+                Console.Write("Enter filename to load: ");
                 string file = Console.ReadLine();
 
                 if (!string.IsNullOrWhiteSpace(file))
@@ -79,7 +80,15 @@ class Program
                     Console.WriteLine("Invalid filename.");
                 }
             }
+
+            // EXCEEDING REQUIREMENT: Scripture/word search feature
             else if (choice == 5)
+            {
+                Console.Write("Enter keyword to search (e.g., faith, prayer, Jesus): ");
+                string keyword = Console.ReadLine();
+                journal.SearchEntries(keyword);
+            }
+            else if (choice == 6)
             {
                 Console.WriteLine("Goodbye!");
             }
