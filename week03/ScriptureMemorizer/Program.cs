@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Scripture library (creative enhancement)
+        // Scripture library 
         List<Scripture> scriptures = new List<Scripture>()
         {
             new Scripture(new Reference("John", 3, 16),
@@ -27,7 +27,7 @@ class Program
             Console.Clear();
             Console.WriteLine(scripture.GetDisplayText());
 
-            // Creative enhancement: show progress percentage
+            // Creative and Exceeding Requirements: Showing the user how much of the scripture is hidden ( %) after each step.
             Console.WriteLine($"\nProgress: {scripture.GetHiddenPercentage()}% hidden");
 
             if (scripture.IsCompletelyHidden())
